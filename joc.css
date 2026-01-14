@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+#game-container {
+    display: flex;
+    gap: 40px;
+}
+
+#player-side, #enemy-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#enemy-side {
+    display: none;
+}
+
+h2 {
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+#game_grid, #enemy_grid {
+    display: grid;
+    grid-template-columns: repeat(10, 45px);
+    gap: 2px;
+    background: #ddd;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.cell {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #999;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.player-cell:hover {
+    background-color: #e3f2fd;
+}
+
+.enemy-cell:hover {
+    background-color: #e3f2fd;
+}
+
+.barca {
+    background-color: #64b5f6;
+}
+
+.enemy-cell.barca {
+    background-color: #fff;
+}
+
+.barca-head {
+    background-color: #1976d2;
+}
+
+.preview-valid {
+    background-color: #81c784 !important;
+}
+
+.preview-invalid {
+    background-color: #e57373 !important;
+}
+
+.hit {
+    background-color: #b928286c !important;
+    color: rgb(155, 3, 3);
+}
+
+.destroyed {
+    background-color: rgb(55, 12, 12) !important;
+    color: rgb(55, 12, 12);
+}
+
+.miss {
+    background-color: #d1cdcd;
+}
+
+#status {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#play-button {
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+#play-button:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+#play-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#score-container {
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    min-width: 200px;
+}
+
+#score-container h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+#score-list {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1976d2;
+}
+
+@media screen and (max-width: 900px) {
+    body {
+        align-items: flex-start;
+    }
+
+    main {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #game-container {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    #game_grid, #enemy_grid {
+        grid-template-columns: repeat(10, 35px);
+        gap: 1px;
+        padding: 3px;
+    }
+
+    .cell {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    #status {
+        font-size: 16px;
+        padding: 8px 16px;
+        text-align: center;
+    }
+
+    #play-button {
+        padding: 10px 24px;
+        font-size: 16px;
+    }
+
+    #score-container {
+        padding: 15px;
+        min-width: 150px;
+    }
+
+    #score-container h3 {
+        font-size: 16px;
+    }
+
+    #score-list {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #game_grid, #enemy_grid {
+        grid-template-columns: repeat(10, 28px);
+    }
+
+    .cell {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
